@@ -1,0 +1,29 @@
+{
+    "name": "themsaid/Multilingual",
+    "description": "Easy multilingual laravel models",
+    "keywords": ["laravel", "multilingual", "translation"],
+    "homepage": "https://github.com/themsaid/laravel-multilingual",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Said",
+            "email": "theMohamedSaid@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.1",
+        "php" : ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Themsaid\\Multilingual\\": "src"
+        },
+        "classmap": [
+            "tests"
+        ]
+    }
+}
