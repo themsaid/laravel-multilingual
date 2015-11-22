@@ -8,8 +8,21 @@ You can also call `$country->nameTranslations->en` to get the value of a specifi
 
 You can check all the translations of a given attributes as easy as `$country->nameTranslations->toArray()`.
 
-## Installation and Usage
+## Installation
 
-### Step 3: Setup your models
+Begin by installing the package through Composer. Run the following command in your terminal:
 
-To preoare your mo
+```
+composer require themsaid/laravel-multilingual
+```
+
+Once composer is done, add the package service provider in the providers array in `config/app.php`
+
+```
+Themsaid\Multilingual\MultilingualServiceProvider::class
+```
+
+That's all, you are now good to go.
+
+# Usage
+
