@@ -34,7 +34,9 @@ That's all, you are now good to go.
 
 First you need to make sure that the translatable attributes has a mysql field type of TEXT, if you are building the database from a migration file you may do this:
 
-```
+```php
+<?php
+
 Schema::create('countries', function (Blueprint $table)
 {
 	$table->increments('id');
@@ -44,7 +46,9 @@ Schema::create('countries', function (Blueprint $table)
 
 Now that you have the database ready to save a JSON string, you need to prepare your models:
 
-```
+```php
+<?php
+
 class Country extends Model
 {
     use Themsaid\Multilingual\Translatable;
@@ -59,7 +63,9 @@ class Country extends Model
 
 Now our model has the `name` attribute translatable, so on creating a new Model you may specify the name field as follow:
 
-```
+```php
+<?php
+
 Country::create([
 	'name' => [
 		'en' => "Spain",
@@ -95,7 +101,9 @@ $country->nameTranslations->toArray()
 # Validation
 A validation rule is included in this package that deals with required translation fields, for example if the name field is required and translatable you may use the following translation rule:
 
-```
+```php
+<?php
+
 $validator = Validator::make(
     ['name' => ['en'=>'One', 'sp'=>'Uno']],
     ['name' => 'translatable_required']
