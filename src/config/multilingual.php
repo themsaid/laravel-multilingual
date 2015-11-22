@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'locales'         => ['en', 'sp'],
+    'locales'         => ['en'],
     'fallback_locale' => 'en',
 
 
