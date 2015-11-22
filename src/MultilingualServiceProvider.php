@@ -15,7 +15,7 @@ class MultilingualServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . 'config/multilingual.php' => config_path('multilingual.php'),
+            __DIR__ . '/config/multilingual.php' => config_path('multilingual.php'),
         ]);
 
         $this->app['validator']->extendImplicit('translatable_required', function ($attribute, $value, $parameters) {

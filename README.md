@@ -26,3 +26,28 @@ That's all, you are now good to go.
 
 # Usage
 
+First you need to make sure that the translatable attributes has a mysql field type of TEXT, if you are building the database from a migration file you may do this:
+
+```
+Schema::create('countries', function (Blueprint $table)
+{
+	$table->increments('id');
+	$table->json('name');
+});
+```
+
+Now that you have the database ready to save a JSON string, you need to prepare your models:
+
+```
+class Country extends Model
+{
+    use Themsaid\Multilingual\Translatable;
+
+    protected $table = 'countries';
+    public $translatable = ['name'];
+}
+```
+
+- Add the `Translatable` trait to your model class
+- Add a public class property `$translatable` as an array that holds the names of the translatable fields in your model.
+
