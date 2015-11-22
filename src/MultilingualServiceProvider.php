@@ -21,9 +21,13 @@ class MultilingualServiceProvider extends ServiceProvider
         $this->app['validator']->extendImplicit('translatable_required', function ($attribute, $value, $parameters) {
             if ( ! is_array($value)) return false;
 
-            $value = array_filter($value);
+            // Get only the locales that has a value and exists in
+            // the system locales array
+            $locales = array_filter(array_keys($value), function ($locale) use ($value) {
+                return @$value[$locale] && in_array($locale, config('multilingual.locales'));
+            });
 
-            return array_keys($value) == config('multilingual.locales');
+            return $locales == config('multilingual.locales');
         });
     }
 

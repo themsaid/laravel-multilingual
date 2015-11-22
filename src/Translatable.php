@@ -46,7 +46,7 @@ trait Translatable
         if ( ! $translations) return "";
 
         if ( ! @$translations[$currentLocale]) {
-            return $fallbackLocale ? @$translations[$fallbackLocale] : array_values($translations)[0];
+            return @$translations[$fallbackLocale] ?: '';
         };
 
         return @$translations[$currentLocale];

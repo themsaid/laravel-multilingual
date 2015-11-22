@@ -71,7 +71,7 @@ class TranslationsTest extends TestCase
         $this->assertEquals('Mercurio', $planet->name);
     }
 
-    public function test_translatable_attribute_return_default_value_if_current_locale_empty()
+    public function test_translatable_attribute_return_fallback_value_if_current_locale_empty()
     {
         $planet = Planet::create([
             'name' => [
@@ -84,6 +84,22 @@ class TranslationsTest extends TestCase
         config(['app.locale' => 'en']);
 
         $this->assertEquals('Mercurio', $planet->name);
+    }
+
+    public function test_translatable_attribute_return_empty_value_if_current_and_fallback_locale_empty()
+    {
+        $planet = Planet::create([
+            'name' => [
+                'en' => '',
+                'sp' => '',
+                'fr' => 'No Idea'
+            ]
+        ]);
+
+        config(['multilingual.fallback_locale' => 'sp']);
+        config(['app.locale' => 'en']);
+
+        $this->assertEquals('', $planet->name);
     }
 
     public function test_returning_array_of_all_translations()
