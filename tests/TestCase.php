@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class TestCase extends Orchestra\Testbench\TestCase
 {
 
-    protected $DBName = 'laravel_multilingual_test';
+    protected $DBName = 'laravel_packages_test';
     protected $DBUsername = 'homestead';
     protected $DBPassword = 'secret';
 
