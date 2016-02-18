@@ -13,7 +13,7 @@ You can check all the translations of a given attributes as easy as `$country->n
 Begin by installing the package through Composer. Run the following command in your terminal:
 
 ```
-composer require themsaid/laravel-multilingual:dev-master
+composer require themsaid/laravel-multilingual
 ```
 
 Once composer is done, add the package service provider in the providers array in `config/app.php`
