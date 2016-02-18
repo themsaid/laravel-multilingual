@@ -1,5 +1,10 @@
 # Laravel 5 Multilingual Models
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/themsaid/laravel-multilingual.svg?style=flat-square)](https://packagist.org/packages/themsaid/laravel-multilingual)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Total Downloads](https://img.shields.io/packagist/dt/themsaid/laravel-multilingual.svg?style=flat-square)](https://packagist.org/packages/themsaid/laravel-multilingual)
+
+
 This laravel package makes Eloquent Models attributes translatable without the need to separate database tables for translation values.
 
 You simply call `$country->name` and you get a value based on your application's current locale.
