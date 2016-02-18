@@ -36,7 +36,7 @@ class TestCase extends Orchestra\Testbench\TestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('multilingual.localed', ['en', 'sp']);
+        $app['config']->set('multilingual.locales', ['en', 'sp']);
         $app['config']->set('multilingual.fallback_locale', 'en');
 
         $app['config']->set('database.default', 'mysql');

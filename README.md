@@ -32,7 +32,7 @@ That's all, you are now good to go.
 
 # Usage
 
-First you need to make sure that the translatable attributes has a mysql field type of TEXT, if you are building the database from a migration file you may do this:
+First you need to make sure that the translatable attributes has a mysql field type of text or json, if you are building the database from a migration file you may do this:
 
 ```php
 <?php
@@ -55,11 +55,13 @@ class Country extends Model
 
     protected $table = 'countries';
     public $translatable = ['name'];
+    public $casts = ['name' => 'array'];
 }
 ```
 
 - Add the `Translatable` trait to your model class
 - Add a public class property `$translatable` as an array that holds the names of the translatable fields in your model.
+- Remember to cast the translatable attribute as 'array' in the `$casts` property of the model.
 
 Now our model has the `name` attribute translatable, so on creating a new Model you may specify the name field as follow:
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace Themsaid\Multilingual;
 
 use Illuminate\Support\ServiceProvider;
@@ -17,22 +18,24 @@ class MultilingualServiceProvider extends ServiceProvider
         $systemLocales = config('multilingual.locales');
 
         $this->publishes([
-            __DIR__ . '/config/multilingual.php' => config_path('multilingual.php'),
+            __DIR__.'/config/multilingual.php' => config_path('multilingual.php'),
         ]);
 
 
         $this->app['validator']->extendImplicit('translatable_required', function ($attribute, $value, $parameters) use ($systemLocales) {
-            if ( ! is_array($value)) return false;
+            if (! is_array($value)) {
+                return false;
+            }
 
-            // Get only the locales that has a value and exists in
-            // the system locales array
+            // Get only the locales that has a value and exists in the system locales array
             $locales = array_filter(array_keys($value), function ($locale) use ($value, $systemLocales) {
                 return @$value[$locale] && in_array($locale, $systemLocales);
             });
 
             foreach ($systemLocales as $systemLocale) {
-                if ( ! in_array($systemLocale, $locales))
+                if (! in_array($systemLocale, $locales)) {
                     return false;
+                }
             }
 
             return true;
@@ -47,7 +50,7 @@ class MultilingualServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/multilingual.php', 'multilingual'
+            __DIR__.'/config/multilingual.php', 'multilingual'
         );
     }
 }
