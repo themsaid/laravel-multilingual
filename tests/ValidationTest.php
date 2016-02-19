@@ -74,4 +74,19 @@ class ValidationTest extends TestCase
 
         $this->assertFalse($validator->messages()->has('name'));
     }
+
+    public function test_only_specific_locales_required()
+    {
+        $validator = Validator::make(
+            ['name' => ['en' => 'One', 'sp' => 'Uno']],
+            ['name.en' => 'required']
+        );
+        $this->assertTrue($validator->passes());
+
+        $validator = Validator::make(
+            ['name' => ['sp' => 'Uno']],
+            ['name.en' => 'required']
+        );
+        $this->assertFalse($validator->passes());
+    }
 }

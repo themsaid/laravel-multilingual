@@ -106,7 +106,18 @@ $country->nameTranslations->toArray()
 ```
 
 # Validation
-A validation rule is included in this package that deals with required translation fields, for example if the name field is required and translatable you may use the following translation rule:
+You can use the new array validation features released with laravel 5.2 to validate the presence of specific locales:
+
+```php
+<?php
+
+$validator = Validator::make(
+    ['name' => ['en'=>'One', 'sp'=>'Uno']],
+    ['name.en' => 'required']
+);
+```
+
+However a validation rule is included in this package that deals with requiring all the validations to be provided:
 
 ```php
 <?php
@@ -125,4 +136,4 @@ Now you only need to add the translated message of our new validation rule, add 
 
 ```
 'translatable_required' => 'The :attribute translations must be provided.',
-``` 
+```
