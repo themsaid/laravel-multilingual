@@ -4,7 +4,7 @@ namespace Themsaid\Multilingual\Tests\Models;
 use Illuminate\Database\Eloquent\Model;
 use Themsaid\Multilingual\Translatable;
 
-class UntranslatablePlanet extends Model
+class MULTILINGUAL_TEST__UNTRANSLATABLE_PLANET_MODEL extends Model
 {
     use Translatable;
 

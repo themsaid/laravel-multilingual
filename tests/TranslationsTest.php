@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Themsaid\Multilingual\Tests\Models\Planet;
-use Themsaid\Multilingual\Tests\Models\UntranslatablePlanet;
+use Themsaid\Multilingual\Tests\Models\MULTILINGUAL_TEST_PLANET_MODEL as Planet;
+use Themsaid\Multilingual\Tests\Models\MULTILINGUAL_TEST__UNTRANSLATABLE_PLANET_MODEL as UntranslatablePlanet;
 
 class TranslationsTest extends TestCase
 {

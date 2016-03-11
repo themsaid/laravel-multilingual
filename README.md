@@ -137,3 +137,18 @@ Now you only need to add the translated message of our new validation rule, add 
 ```
 'translatable_required' => 'The :attribute translations must be provided.',
 ```
+
+# Queries
+If you're using MySQL 5.7 or above, it's recommended that you use the json data type for housing translations in the Database,
+this will allow you to query these columns like this:
+
+```php
+Company::whereRaw('name->"$.en" = \'Monsters Inc.\'')->orderByRaw('specs->"$.founded_at"')->get;
+```
+
+However in laravel 5.2.23 and above you can use the fluent syntax:
+
+```php
+Company::where('name->en', 'Monsters Inc.')->orderBy('specs->founded_at')->get;
+
+```

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Validator;
-use Themsaid\Multilingual\Tests\Models\Planet;
 
 class ValidationTest extends TestCase
 {
