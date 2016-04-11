@@ -143,12 +143,12 @@ If you're using MySQL 5.7 or above, it's recommended that you use the json data 
 this will allow you to query these columns like this:
 
 ```php
-Company::whereRaw('name->"$.en" = \'Monsters Inc.\'')->orderByRaw('specs->"$.founded_at"')->get;
+Company::whereRaw('name->"$.en" = \'Monsters Inc.\'')->orderByRaw('specs->"$.founded_at"')->get();
 ```
 
 However in laravel 5.2.23 and above you can use the fluent syntax:
 
 ```php
-Company::where('name->en', 'Monsters Inc.')->orderBy('specs->founded_at')->get;
+Company::where('name->en', 'Monsters Inc.')->orderBy('specs->founded_at')->get();
 
 ```
