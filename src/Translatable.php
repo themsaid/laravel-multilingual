@@ -8,12 +8,6 @@ namespace Themsaid\Multilingual;
  */
 trait Translatable
 {
-    /**
-     * Set to false to avoid setting the json_encode as utf8
-     *
-     * @var bool
-     */
-    public $jsonAsUtf = true;
 
     /**
      * @param string $key
@@ -89,7 +83,11 @@ trait Translatable
      */
     protected function asJson($value)
     {
-        $mode = ( ! $this->jsonAsUtf) ? 0 : JSON_UNESCAPED_UNICODE;
+        $mode = JSON_UNESCAPED_UNICODE;
+        if (isset($this->jsonAsUtf) && $this->jsonAsUtf == false){
+            $mode = 0;
+        }
+
         return json_encode($value, $mode);
     }
 }
