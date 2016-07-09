@@ -75,19 +75,14 @@ trait Translatable
     }
 
     /**
-     * Alter default Laravel behaviour when it comes to json_encode.
-     * This will save the json as UTF-8 to the DB
+     * Alter the default behaviour when it comes to using json_encode for model attributes,
+     * this will save the json as UTF-8 to the database instead of escaping characters.
      *
-     * @param $value
+     * @param array $value
      * @return string
      */
     protected function asJson($value)
     {
-        $mode = JSON_UNESCAPED_UNICODE;
-        if (isset($this->jsonAsUtf) && $this->jsonAsUtf == false){
-            $mode = 0;
-        }
-
-        return json_encode($value, $mode);
+        return json_encode($value, JSON_UNESCAPED_UNICODE);
     }
 }
