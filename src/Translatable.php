@@ -2,8 +2,13 @@
 
 namespace Themsaid\Multilingual;
 
+/**
+ * Class Translatable
+ * @package Themsaid\Multilingual
+ */
 trait Translatable
 {
+
     /**
      * @param string $key
      * @return mixed
@@ -67,5 +72,22 @@ trait Translatable
         }
 
         return parent::isJsonCastable($key);
+    }
+
+    /**
+     * Alter default Laravel behaviour when it comes to json_encode.
+     * This will save the json as UTF-8 to the DB
+     *
+     * @param $value
+     * @return string
+     */
+    protected function asJson($value)
+    {
+        $mode = JSON_UNESCAPED_UNICODE;
+        if (isset($this->jsonAsUtf) && $this->jsonAsUtf == false){
+            $mode = 0;
+        }
+
+        return json_encode($value, $mode);
     }
 }
