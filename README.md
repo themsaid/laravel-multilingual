@@ -17,19 +17,19 @@ You can check all the translations of a given attributes as easy as `$country->n
 
 Begin by installing the package through Composer. Run the following command in your terminal:
 
-```
+```bash
 composer require themsaid/laravel-multilingual
 ```
 
 Once composer is done, add the package service provider in the providers array in `config/app.php`
 
-```
+```php
 Themsaid\Multilingual\MultilingualServiceProvider::class
 ```
 
 Finally publish the config file:
 
-```
+```bash
 php artisan vendor:publish
 ```
 
@@ -83,7 +83,7 @@ Country::create([
 
 It'll be automatically converted to a JSON string and saved in the name field of the database, you can later retrieve the name like this:
 
-```
+```php
 $country->name
 ```
 
@@ -93,7 +93,7 @@ In case nothing can be found an empty string will be returned.
 
 You may also want to return the value for a specific locale, you can do that using the following syntax:
 
-```
+```php
 $country->nameTranslations->en
 ```
 
@@ -101,7 +101,7 @@ This will return the English name of the country.
 
 To return an array of all the available translations you may use:
 
-```
+```php
 $country->nameTranslations->toArray()
 ```
 
@@ -134,7 +134,7 @@ You may define the available locales as well as the fallback_locale from the pac
 
 Now you only need to add the translated message of our new validation rule, add this to the `validation.php` translation file:
 
-```
+```php
 'translatable_required' => 'The :attribute translations must be provided.',
 ```
 
